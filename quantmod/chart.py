@@ -1,8 +1,8 @@
-"""Main Chart functionnality
+"""Main Chart functionality
 
 Chart is a wrapper on top of DataFrame that
-adds functionnality and allows for easy plotting.
-Features include time series adjustement, volume adjustement, and
+adds functionality and allows for easy plotting.
+Features include time series adjustment, volume adjustment, and
 plotting of OHLCV data with over 100 technical indicators.
 
 """
@@ -15,7 +15,10 @@ import copy
 import six
 import datetime as dt
 import pandas as pd
-import plotly.plotly as py
+
+# plotly.plotly contains online functionality which has been moved to chart_studio.
+# We do not require it.
+# import plotly.plotly as py
 import plotly.offline as pyo
 
 from . import tools
@@ -953,7 +956,7 @@ class Chart(object):
                             show_link=show_link,
                             link_text=link_text)
         else:
-            return py.plot(figure, filename=filename)
+            return pyo.plot(figure, filename=filename)
 
     def iplot(self, type=None, volume=None, log=None,
               theme=None, layout=None,
@@ -1069,7 +1072,7 @@ class Chart(object):
                              show_link=show_link,
                              link_text=link_text)
         else:
-            return py.iplot(figure, filename=filename)
+            return pyo.iplot(figure, filename=filename)
 
 
 Chart.add_MA = add_MA  # noqa : F405

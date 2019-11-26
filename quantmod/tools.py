@@ -244,7 +244,8 @@ def reset_config_file():
     f.close()
     ensure_local_files()
 
-
-set_credentials_file = plotly.tools.set_credentials_file
-get_credentials_file = plotly.tools.get_credentials_file
-reset_credentials_file = plotly.tools.reset_credentials_file
+# This functionality has been moved to chart_studio and is not required because
+# we are only doing offline plots anyway. So we just set them all to None
+set_credentials_file = None  # plotly.tools.set_credentials_file
+get_credentials_file = None  # plotly.tools.get_credentials_file
+reset_credentials_file = None  # plotly.tools.reset_credentials_file
