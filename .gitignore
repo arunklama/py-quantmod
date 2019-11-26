@@ -95,3 +95,19 @@ ENV/
 
 # Added
 unused/
+
+# Cache
+__pycache__
+
+# OS
+.DS_Store
+
+# Vagrant
+.vagrant
+
+# IDE
+.vscode
+.idea
+
+# Settings
+.envrc
