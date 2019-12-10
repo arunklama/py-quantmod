@@ -804,7 +804,7 @@ class Chart(object):
                 layout['annotations'] = []
 
             if type in OHLC_TRACES:
-                if (self.df[self.cl][-1] - self.df[self.op].values[-1]) >= 0:
+                if (self.df[self.cl].values[-1] - self.df[self.op].values[-1]) >= 0:
                     annotations_color = colors['increasing']
                 else:
                     annotations_color = colors['decreasing']
@@ -819,7 +819,7 @@ class Chart(object):
                 yanchor=layout['legend']['yanchor'],
                 yref='paper',
                 showarrow=False,
-                text='Last {0:,.02f}'.format(self.df[self.cl][-1]),
+                text='Last {0:,.02f}'.format(self.df[self.cl].values[-1]),
                 font=dict(color=annotations_color),
             )
             layout['annotations'].append(last_price)
@@ -834,7 +834,7 @@ class Chart(object):
                     yanchor=layout['legend']['yanchor'],
                     yref='paper',
                     showarrow=False,
-                    text='Volume {0:,}'.format(self.df[self.vo][-1]),
+                    text='Volume {0:,}'.format(self.df[self.vo].values[-1]),
                     font=dict(color=annotations_color),
                 )
                 layout['annotations'].append(last_volume)
